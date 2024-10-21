@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SVG Filter | CodePen Challenge</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Magic!</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <!-- Turbulence filter with displacement and blur -->
+            <filter id="wavey" x="0" y="0">
+              <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" seed="2" result="turbulence"></feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+              <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+              <feColorMatrix type="hueRotate" values="0">
+                <animate attributeName="values" from="0" to="360" dur="5s" repeatCount="indefinite"/>
+              </feColorMatrix>
+            </filter>
+          </defs>
+        </svg>
+    </div>
+</body>
+</html>
