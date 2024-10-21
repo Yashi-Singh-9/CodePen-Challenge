@@ -76,7 +76,7 @@
     position: relative;
     width: 300px;
     height: 200px;
-    background-image: url('https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg'); /* Background image */
+    background-image: url('images/bird-8788491_1280.jpg'); /* Background image */
     background-size: cover;
     display: flex;
     justify-content: center;
