@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    margin: 0;
+}
+  
+.container {
+    text-align: center;
+    position: relative;
+}
+  
+h1 {
+    font-size: 5em;
+    color: white;
+    text-transform: uppercase;
+    font-family: "Zeyada", serif;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease-in-out;
+    filter: none;
+    cursor: pointer;
+}
+  
+h1:hover {
+    filter: url(#wavey);
+    color: #FF4A6E;
+}  
