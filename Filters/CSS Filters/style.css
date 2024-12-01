@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* General Body and Styling */
+  body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 60px auto;
+    gap: 50px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  /* Image Gallery */
+  .image-gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping to next line */
+  }
+  
+  .image-container {
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    width: 200px; /* Set a fixed width for the container */
+    height: 300px; /* Set a fixed height for the container */
+  }
+  
+  .image-container:hover {
+    transform: scale(1.05);
+  }
+  
+  .filter {
+    width: 100%;
+    height: 100%; /* Ensures the image fills the container */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    transition: filter 0.5s ease;
+  }
+  
+  /* Different Filter Effects */
+  .grayscale {
+    filter: grayscale(100%);
+  }
+  
+  .sepia {
+    filter: sepia(100%);
+  }
+  
+  .blur {
+    filter: blur(4px);
+  }
+  
+  .hue-rotate {
+    filter: hue-rotate(90deg);
+  }
+  
+  .filter:hover {
+    filter: none;
+  }
+  
+  /* Frosted Glass Effect with Backdrop-Filter */
+  .frosted-glass-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-image: url('images/bird-8788491_1280.jpg'); /* Background image */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .frosted-glass {
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent */
+    backdrop-filter: blur(10px) brightness(0.9);
+    -webkit-backdrop-filter: blur(10px) brightness(0.9); /* Safari support */
+    border-radius: 15px;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .image-gallery {
+      flex-direction: column; /* Stack images vertically */
+      align-items: center; /* Center images */
+    }
+  
+    .image-container {
+      width: 90%; /* Make the containers wider for small screens */
+      height: auto; /* Allow height to adjust */
+    }
+    
+    .frosted-glass-container {
+      width: 90%; /* Responsive width for frosted glass */
+      padding: 20px;
+    }
+  }
+  

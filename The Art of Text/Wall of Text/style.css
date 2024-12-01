@@ -1,0 +1,197 @@
+/* Base Styles */
+body {
+	margin: 0;
+	font-family: "Barlow", sans-serif;
+	background: #1a1a1d; /* Dark background for contrast */
+	color: #f5f5f5; /* Light text color for readability */
+	overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.wall-of-text {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+/* Intro Section */
+.intro h1 {
+	font-size: 3rem;
+	text-align: center;
+	background: linear-gradient(90deg, #e63946, #457b9d);
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+.intro p {
+	text-align: center;
+	font-size: 1.2rem;
+	margin: 0 auto;
+	max-width: 600px;
+	line-height: 1.6;
+}
+
+/* Layered Text Section */
+.layered-text {
+	position: relative;
+	height: 400px; /* Height to accommodate all layers */
+	overflow: visible;
+}
+
+.layer h2 {
+	position: absolute;
+	top: 30%; /* Center vertically */
+	left: 50%; /* Center horizontally */
+	transform: translate(-50%, calc(-50% + var(--offset))) skewY(-5deg); /* Center with custom offset */
+	font-size: 6rem;
+	font-family: "Space Mono", monospace;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-shadow: 0 3px 0 #f5f5f5, 3px 3px 0 #457b9d, -3px -3px 0 #e63946;
+	animation: floatText 5s infinite alternate ease-in-out;
+	color: #1a1a1d;
+	white-space: nowrap;
+}
+
+/* Individual Offsets for Each <h2> */
+.layer h2:nth-child(1) {
+	--offset: -80px; /* Move up slightly */
+}
+
+.layer h2:nth-child(2) {
+	--offset: 0px; /* Stay at center */
+	animation-delay: 0.3s;
+}
+
+.layer h2:nth-child(3) {
+	--offset: 80px; /* Move down slightly */
+	animation-delay: 0.6s;
+}
+
+/* Animation for Floating Effect */
+@keyframes floatText {
+	0% {
+		transform: translate(-30%, calc(-90% + var(--offset))) skewY(-5deg)
+			translateY(0);
+	}
+	100% {
+		transform: translate(-60%, calc(-20% + var(--offset))) skewY(-8deg)
+			translateY(-30px);
+	}
+}
+
+.layer h2:nth-child(2) {
+	animation-delay: 0.3s;
+}
+
+.layer h2:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+/* Centered Focus Section */
+.centered-focus {
+	background: #292929;
+	padding: 2rem;
+	text-align: center;
+	border-radius: 8px;
+}
+
+.centered-focus aside {
+	font-style: italic;
+	font-size: 1.5rem;
+	color: #e63946;
+}
+
+.centered-focus p {
+	margin: 1rem 0 0;
+	font-size: 1.2rem;
+	line-height: 1.6;
+}
+
+.centered-focus .highlight {
+	color: #457b9d;
+	font-weight: bold;
+	animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		text-shadow: 0 0 10px #2a9d8f;
+	}
+	50% {
+		text-shadow: 0 0 20px #e63946;
+	}
+}
+
+/* Dynamic Grid */
+.dynamic-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 1rem;
+	cursor: pointer;
+}
+
+.text-tile {
+	font-size: 1.5rem;
+	padding: 2rem;
+	background: var(--color);
+	border-radius: 8px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	transition: transform 0.3s ease-in-out;
+}
+
+.text-tile:hover {
+	transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+	/* Adjust Layered Text for Tablet */
+	.layer h2 {
+		font-size: 4rem; /* Reduce font size */
+		transform: translate(-50%, -50%) skewY(-3deg); /* Adjust skew for readability */
+	}
+
+	.layered-text {
+		height: 300px; /* Reduce height */
+	}
+
+	/* Adjust Grid for Tablet */
+	.dynamic-grid {
+		grid-template-columns: repeat(2, 1fr); /* Display 2 columns */
+	}
+
+	.dynamic-grid .text-tile {
+		font-size: 1.2rem; /* Reduce text size */
+		padding: 1.5rem; /* Adjust padding */
+	}
+}
+
+@media (max-width: 480px) {
+	/* Adjust Layered Text for Mobile */
+	.layer h2 {
+		font-size: 3rem; /* Further reduce size for small screens */
+	}
+
+	.intro h1 {
+		font-size: 2rem; /* Reduce intro header size */
+	}
+
+	.intro p {
+		font-size: 1rem; /* Reduce paragraph size */
+		padding: 0 1rem; /* Add padding for mobile */
+	}
+
+	/* Adjust Grid for Mobile */
+	.dynamic-grid {
+		grid-template-columns: 1fr; /* Single column on mobile */
+	}
+
+	.dynamic-grid .text-tile {
+		font-size: 1rem;
+		padding: 1rem;
+	}
+}

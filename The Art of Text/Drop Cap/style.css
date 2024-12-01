@@ -1,0 +1,64 @@
+/* Body styling */
+body {
+	font-family: "Georgia", serif;
+	line-height: 1.6;
+	margin: 0;
+	padding: 20px;
+	background-color: #f8f4ea;
+	color: #333;
+}
+
+/* Container for the text */
+.text-container {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 20px;
+	background: #fff;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Basic paragraph styling */
+.text-container p {
+	font-size: 1.125rem;
+	text-align: justify;
+	position: relative;
+	color: #333;
+	margin: 0;
+}
+
+/* Styling for the first letter using a span */
+.text-container p span {
+	font-size: 6rem; /* Large size for the drop cap */
+	font-weight: bold;
+	color: #ba1f33; /* Dark red color for a classic look */
+	background: linear-gradient(135deg, #ba1f33, #ffcf57); /* Gradient effect */
+	padding: 10px;
+	border-radius: 6px;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+		inset 0 0 5px rgba(255, 255, 255, 0.6);
+	position: relative;
+	display: inline-block;
+	opacity: 0; /* Initially hidden */
+	animation: dropIn 1s ease forwards; /* Animation on load */
+}
+
+/* Drop-in animation */
+@keyframes dropIn {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/* Hover effect for interactivity */
+.text-container p span:hover {
+	transform: scale(1.1);
+	color: #ffcf57;
+	text-shadow: 0 0 10px rgba(255, 207, 87, 0.6), 0 0 15px rgba(186, 31, 51, 0.4);
+}
