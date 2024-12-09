@@ -1,0 +1,64 @@
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: linear-gradient(to bottom, #001f3f, #0074d9);
+	height: 100vh;
+	font-family: Arial, sans-serif;
+}
+
+.snowflake {
+	position: absolute;
+	color: white;
+	font-size: 1rem;
+	user-select: none;
+	pointer-events: none;
+	animation: fall linear infinite;
+}
+
+@keyframes fall {
+	0% {
+		transform: translateY(-100vh) translateX(0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(100vh) translateX(var(--wind));
+		opacity: 0;
+	}
+}
+
+.scene {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 150px;
+	background: #fff;
+	box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scene:before {
+	content: "";
+	position: absolute;
+	top: -50px;
+	left: 20%;
+	width: 150px;
+	height: 150px;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.scene:after {
+	content: "";
+	position: absolute;
+	top: -40px;
+	left: 60%;
+	width: 100px;
+	height: 100px;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: -5px 5px 0 rgba(0, 0, 0, 0.1);
+}
